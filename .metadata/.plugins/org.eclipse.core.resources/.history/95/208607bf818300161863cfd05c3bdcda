@@ -1,0 +1,30 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ProductorConsumer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ProcessBuilder pb1 = new ProcessBuilder(new String[] { "ps", "aux"});
+		ProcessBuilder pb2 = new ProcessBuilder(new String[] { "grep", "^root" });
+
+
+		try {
+			Process p1 = pb1.start();
+			InputStream is1 = p1.getInputStream();
+			BufferedReader br1 = new BufferedReader(new InputStreamReader(is1));
+
+			p1.waitFor();
+			Process p2 = pb2.start();
+			p2.waitFor();
+		} catch (InterruptedException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+	}
+
+}

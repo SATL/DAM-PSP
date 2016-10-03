@@ -1,0 +1,15 @@
+
+public class ProductorConsumer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		File psFile = new File("./ps.txt");
+		ProcessBuilder pb1 = new ProcessBuilder(new String[] { "ps", "aux"});
+		ProcessBuilder pb2 = new ProcessBuilder(new String[] { "grep", "^root" });
+		
+		pb1.redirectOutput(psFile);
+		pb2.redirectInput(psFile)
+	}
+
+}

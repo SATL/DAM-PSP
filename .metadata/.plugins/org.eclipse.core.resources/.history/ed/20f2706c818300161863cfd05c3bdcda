@@ -1,0 +1,30 @@
+import java.io.File;
+import java.lang.ProcessBuilder.Redirect;
+
+public class ProductorConsumer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		File psFile = new File("./ps.txt");
+		ProcessBuilder pb1 = new ProcessBuilder(new String[] { "ps", "aux"});
+		ProcessBuilder pb2 = new ProcessBuilder(new String[] { "grep", "^root" });
+		
+		pb1.redirectOutput(psFile);
+		pb2.redirectInput(psFile);
+		pb2.redirectOutput(Redirect.INHERIT);
+
+		Process p1 = pb1.start();
+		try {
+			p1.waitFor();
+			Process p2 = pb2.start();
+			p2.waitFor();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+	}
+
+}

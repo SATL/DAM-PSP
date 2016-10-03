@@ -1,0 +1,20 @@
+import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
+
+public class StreamFatherSon2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Process process;
+		try {
+			process = new ProcessBuilder(new String[] { "ls", "-l" }).start();
+			process.redirectOutput(Redirect.INHERIT);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
