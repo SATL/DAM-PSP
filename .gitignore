@@ -1,5 +1,7 @@
 .metadata
-.recomenders
+.recommenders
+
+*.class
 
 # Package Files #
 *.jar
