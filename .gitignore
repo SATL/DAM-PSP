@@ -1,0 +1,7 @@
+.metadata
+.recomenders
+
+# Package Files #
+*.jar
+*.war
+*.ear
